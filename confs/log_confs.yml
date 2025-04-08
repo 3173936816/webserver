@@ -1,0 +1,38 @@
+- logs :
+    - owner : root
+      level : DEBUG
+      format : "%D{%Y-%m-%d %H:%M:%S}%T%t%T%c%T%N%T[%L]%T[%o]%T%f:%l%T%m%n"
+      ConsoleLogAppender :
+            - level : DEBUG
+              format : default
+      SizeRotateFileAppender :
+            - level : WARN
+              format : default
+              path : "../logs/root/root.log"
+              maxCount : 8
+              maxSize : 512 * 12
+
+    - owner : system
+      level : DEBUG
+      format : "%D{%Y-%m-%d %H:%M:%S}%T%t%T%c%T%N%T[%L]%T[%o]%T%f:%l%T%m%n"
+      ConsoleLogAppender :
+            - level : DEBUG
+              format : default
+      SizeRotateFileAppender :
+            - level : WARN
+              format : default
+              path : "../logs/system/system.log"
+              maxCount : 8
+              maxSize : 512 * 12
+    
+    - owner : server
+      level : INFO
+      format : "%D{%Y-%m-%d %H:%M:%S}%T%t%T%c%T%N%T[%L]%T[%o]%T%f:%l%T%m%n"
+      ConsoleLogAppender :
+           - level : DEBUG
+             format : default
+      DateRotateFileAppender :
+           - level : ERROR
+             format : default
+             path : "../logs/server/server.log"
+             maxCount : 8

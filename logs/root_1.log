@@ -1,0 +1,12 @@
+2025-04-01 01:01:23	8110	8110	test_http	[ERROR]	[root]	/home/lcy/projectsMySelf/MyWebserver/source/config.h:364	ConfigVar::serialize error ---- exception: bad lexical cast: source type value could not be interpreted as target
+text:
+- http_request_buff_size: 4 * 1024
+  http_request_max_body_size: 64 * 1024 * 1024
+  http_response_buff_size: 4 * 1024
+  http_response_max_body_size: 64 * 1024 * 1024
+2025-04-01 01:46:21	10889	10889	test_http	[ERROR]	[root]	/home/lcy/projectsMySelf/MyWebserver/source/config.h:364	ConfigVar::serialize error ---- exception: string to vector fmt error
+text:
+http_request_buff_size: 1
+http_request_max_body_size: 2
+http_response_buff_size: 4
+http_response_max_body_size: 1024

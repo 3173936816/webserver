@@ -1,0 +1,31 @@
+- person:
+    name: lcy
+    age: 22
+- logs:
+    - owner: system
+      level: DEBUG
+      format: "%D{%Y-%m-%d %H:%M:%S}%T%t%T%c%T%N%T[%L]%T[%o]%T%f:%l%T%m%n"
+      ConsoleLogAppender:
+        - level: DEBUG
+          format: default
+      SoleFileLogAppender: ~
+      DateRotateFileAppender:
+        - level: DEBUG
+          format: default
+          path: ../logs/datelog/datelog.log
+          maxCount: 8
+      SizeRotateFileAppender: ~
+    - owner: root
+      level: DEBUG
+      format: "%D{%Y-%m-%d %H:%M:%S}%T%t%T%c%T%N%T[%L]%T[%o]%T%f:%l%T%m%n"
+      ConsoleLogAppender:
+        - level: DEBUG
+          format: default
+      SoleFileLogAppender: ~
+      DateRotateFileAppender: ~
+      SizeRotateFileAppender:
+        - level: DEBUG
+          format: default
+          path: ../logs/sizelog/sizelog.log
+          maxCount: 8
+          maxSize: 512 * 12

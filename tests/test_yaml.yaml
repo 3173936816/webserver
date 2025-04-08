@@ -1,0 +1,24 @@
+- logs:
+    [1, 2, 3]
+
+- system:
+    "%d%n%f%g"
+
+- int:
+    1000
+
+- person:
+      - "%l%j%k"
+     #- name : "%lcy001"
+     #  age : 10000
+     #- name : "%lcy002"
+     #  age : 100000
+
+- person_map:
+            PPPP :
+               # - knml
+               # - "%n%m%l"
+              - name : "%lcy001"
+                age : 10000
+              - name : "%lcy002"
+                age : 100000

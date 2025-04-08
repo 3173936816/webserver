@@ -1,0 +1,5 @@
+- http: 
+    - http_request_buff_size : 4 * 1024
+    - http_request_max_body_size : 64 * 1024 * 1024
+    - http_response_buff_size : 512
+    - http_response_max_body_size : 64 * 1024

@@ -1,0 +1,1 @@
+/opt/rh/devtoolset-11/root/usr/bin/c++  -rdynamic -O3 -g -std=c++11 -Wall -Wno-deprecated   CMakeFiles/httpServer.dir/source/examples/httpServer.cc.o  -o ../bin/httpServer  -L/home/lcy/projectsMySelf/MyWebserver/lib -Wl,-rpath,/home/lcy/projectsMySelf/MyWebserver/lib -lpthread ../lib/libWebServer.so -lyaml-cpp -lboost_thread 

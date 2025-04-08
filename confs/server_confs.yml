@@ -1,0 +1,5 @@
+- server:
+    - server_tcp_recv_timeout : 3 * 60 * 1000
+    - server_tcp_send_timeout : 60 * 1000
+    - server_udp_recv_timeout : 3 * 60 * 1000
+    - server_udp_send_timeout : 60 * 1000

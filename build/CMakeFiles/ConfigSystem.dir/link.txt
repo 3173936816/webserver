@@ -1,0 +1,1 @@
+/opt/rh/devtoolset-11/root/usr/bin/c++ -fPIC -rdynamic -O3 -g -std=c++11 -Wall -Wno-deprecated  -shared -Wl,-soname,libConfigSystem.so -o ../lib/libConfigSystem.so CMakeFiles/ConfigSystem.dir/source/config.cc.o 
