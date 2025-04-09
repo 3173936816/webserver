@@ -34,3 +34,41 @@ TryLock : 尝试加锁, 成功后析构时解锁, Locked : 默认加锁, 析构�
 日志类型 ---|                          |----------  单一文件日志
             |-------- 文件日志 --------|----------  时间轮转式日志 : 根据日期进行日志记录, 可以设置最多保存的日志数量, 文件命名 --- example_2025-01-01.log
                                        |----------  文件大小轮转日志 : 根据文件的大小进行日志记录,  可以设置最多保存的日志数量和每个日志文件的大小, 文件命名 ---- example_1.log
+                                       
+## 配置模块
+使用'yaml'格式文件作为配置文件, 支持yaml文件的序列化和反序列化, 使用配置系统时,只需要片特化LexicalCast类即可,
+提供STL容器(vector, list, set, unordered_map, unoreder_set等等)的序列化支持, 配置使用方式例如:
+
+using Type = Map<std::string, std::string>;
+static ConfigVar<Type>::ptr Coroutine_Config_Var = 
+        ConfigSingleton::GetInstance()->addConfigVar<Type>("coroutine", 
+            Type{{"stackSize", "1024 * 1024"}},  "this configvar defined coroutine stack size");  
+-
+
+对应的配置文件:
+ - coroutine:
+       stackSize : 1024 * 1024
+该配置定义了协程栈的大小
+
+- logs :
+    - owner : root
+      level : DEBUG
+      format : "%D{%Y-%m-%d %H:%M:%S}%T%t%T%c%T%N%T[%L]%T[%o]%T%f:%l%T%m%n"
+      ConsoleLogAppender :
+          - level : DEBUG
+            format : default
+      SizeRotateFileAppender :
+          - level : WARN
+            format : default
+            path : "../logs/root/root.log"
+            maxCount : 8
+            maxSize : 512 * 12
+该配置定义了root日志器的配置
+
+
+## 线程模块
+定义了Thread类, 提供线程支持, 其实也可以使用std标准库的std::thread替代, 但在本项目中日志有线程名称, std::thread中只有pthread_t id(进程级别id)
+也没有 线程的tid(内核级别id)获取方式, 所以选择自己封装一个, 同时也可以提升一下自己的编程能力
+
+
+## 协程模块
