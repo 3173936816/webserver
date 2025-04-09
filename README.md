@@ -68,7 +68,7 @@ static ConfigVar<Type>::ptr Coroutine_Config_Var =
 
 ## 线程模块
 定义了Thread类, 提供线程支持, 其实也可以使用std标准库的std::thread替代, 但在本项目中日志有线程名称, std::thread中只有pthread_t id(进程级别id)
-也没有 线程的tid(内核级别id)获取方式, 所以选择自己封装一个, 同时也可以提升一下自己的编程能力
+也没有线程的tid(内核级别id)获取方式, 所以选择自己封装一个, 同时也可以提升一下自己的编程能力
 
 
 ## 协程模块
