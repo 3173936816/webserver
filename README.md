@@ -75,7 +75,7 @@ static ConfigVar<Type>::ptr Coroutine_Config_Var =
 
 
 ## 协程模块(coroutine)
-使用Linux提供的ucontext库封装的有栈非对称协程, 协程也称为用户级线程, 但是比线程更轻量级, 切换不需要内核, 协程可以使得异步代码的编写
+使用Linux提供的ucontext库封装的有栈非对称协程, 协程也称为用户级线程, 但是比线程更轻量级, 切换由用户控制,无需内核调度, 协程可以使得异步代码的编写
 更加方便, 本项目的协程和std::thread的风格相识:
 
 '''
