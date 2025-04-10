@@ -129,4 +129,4 @@ ByteArray 二进制序列化模块, 实现常用数据类型uint8_t, int8_t, ...
  - 实现了HttpServer
 
 ## Servlet
-仿照java的servlet, 实现http的系列系列接口,  实现了ServletDispatch, FunctionServlet, NotFoundServlet等基础服务, 支持uri的精确匹配和模糊匹配
+仿照java的servlet, 实现http的一系列接口,  实现了ServletDispatch, FunctionServlet, NotFoundServlet等基础服务, 支持uri的精确匹配和模糊匹配
