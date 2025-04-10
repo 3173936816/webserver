@@ -99,4 +99,34 @@ now_coroutine::SwapOut();  ------> 由当前协程切回主协程
 
 
 ## 网络套接字(socket)
+统一分装了Socket的地址类, 支持IPv4, IPv6, Unix地址的解析, 提供网络掩码, 网段和广播地址的获取, 支持域名(www.baidu.comdu.com)解析和本机网卡接口地址的解析
+                    Address ----------UnixAddress
+                       |
+                   IPAddress
+                       |
+                ----------------
+                |              |
+          IPv4Address      IPv6Address
 
+同时封装了socket类, 支持所有socketAPI功能, 同时支持connect_timeout超时连接
+
+
+## ByteArray
+ByteArray 二进制序列化模块, 实现常用数据类型uint8_t, int8_t, ..., uint64_t, int64_t的相关读写方式, 采用google的zigzag编码 和 varint可变长度编码实现基本数据类型的字节压缩,
+这样可以减少数据的传输量提高网络通信的性能, 同时提供和socketAPI 的struct iovec 的转化接口, 还支持数据的文件序列化和反序列化(二进制和十六进制)
+
+
+## 服务器模块(server)
+以Server类作为服务器的基类, 支持一个地址和多个地址的快速绑定bind, listen, 地址复用一次做完, 支持TCP, UDP协议, 支持dispatch事件循环, 支持信号事件的处理, 
+具体服务器只需继承该类实现其虚函数接口即可快速实现, 目前实现了HttpServer
+
+## http协议
+ - 封装了HttpRequest和HttpResponse类, 用于表示http协议, HttpParser采用ragel有限状态机生成代码(性能堪比汇编语言), 用于实现http协议的解析, 同时设定http的一些指标,
+如头部大小, body数据长度
+
+ - 实现了HttpSession, 支持单个socket的数据接收和发送, 处理一些非法的http请求, 例如头部太长的http请求
+
+ - 实现了HttpServer
+
+## Servlet
+仿照java的servlet, 实现http的系列系列接口,  实现了ServletDispatch, FunctionServlet, NotFoundServlet等基础服务, 支持uri的精确匹配和模糊匹配
