@@ -99,7 +99,7 @@ now_coroutine::SwapOut();  ------> 由当前协程切回主协程
 
 
 ## 网络套接字(socket)
-统一分装了Socket的地址类, 支持IPv4, IPv6, Unix地址的解析, 提供网络掩码, 网段和广播地址的获取, 支持域名(www.baidu.comdu.com)解析和本机网卡接口地址的解析
+统一分装了Socket的地址类, 支持IPv4, IPv6, Unix地址的解析, 提供网络掩码, 网段和广播地址的获取, 支持域名(例如www.baidu.com)解析和本机网卡接口地址的解析
                     Address ----------UnixAddress
                        |
                    IPAddress
